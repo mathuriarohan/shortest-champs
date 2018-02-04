@@ -3,11 +3,11 @@ import re
 
 # + INFINITY denotes edges that cannot be taken. -INFINITY denotes edges that
 # must be taken.
-INFINITY = 10**4
+INFINITY = 10**5
 
 # SPACE_PENALTY is the penalty for starting a new word. Setting this to one
 # optimizes for true length.
-SPACE_PENALTY = 1
+SPACE_PENALTY = 1000
 
 # get champs.json using simple riot api call.
 with open("champs.json") as f:
@@ -35,7 +35,6 @@ def compute_overlap(champ_a, champ_b):
 # and maps to another dictionary, which maps champ_name to edge length. Edge
 # length is -(size of overlap) if an overlap exists, or SPACE_PENALTY if no
 # overlap exists.
-
 graph = {}
 for champ_a in champ_set:
 	graph[champ_a] = {}
